@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toque</title>
+</head>
+<style>
+    div{
+        animation: roda 10s  10 ease;
+    }
+   @keyframes roda{
+      10%{
+          top:20px;
+          background-color: red;
+          
+      }
+      25%{
+         left:10px;
+          background-color: blue;
+      }
+      50%{
+    right:20px;
+        background-color: skyblue;
+      }
+       70%{
+    bottom:20px;
+        background-color: skyblue;
+      }
+      100%{
+        width: 50px;
+        height: 50px;
+        border: 2px solid darkcyan;
+        border-radius: 10px;
+        border-left-width: -20px;
+        top: 10;
+        right: 20;
+        background-color: green;
+      }
+   }
+   #me{
+    padding:6px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 10px;
+    word-wrap: break-word;
+   }
+</style>
+<body style="display: flex; flex-direction: row; flex-wrap: wrap;">
+
+   <div id="me">Click Everywhere</div>
+   
+    <script>
+        const ids = []
+        window.addEventListener("click",(local)=>{
+         const novo = window.document.createElement('div');
+         const divs =  document.body.getElementsByTagName('div');
+         const d = divs.length
+         window.document.body.appendChild(novo).setAttribute('id',`div${d}`);
+         document.getElementById(`div${d}`).style.position = "fixed";
+         document.getElementById(`div${d}`).style.height = "20px";
+         document.getElementById(`div${d}`).style.width = "20px";
+         document.getElementById(`div${d}`).style.top = local.clientY +"px";
+         document.getElementById(`div${d}`).style.left = local.clientX +"px";
+         document.getElementById(`div${d}`).style.backgroundColor = `rgb(${d*10},${d+4},${d+2})`;
+        })
+
+
+
+      
+    </script>
+</body>
+</html>
